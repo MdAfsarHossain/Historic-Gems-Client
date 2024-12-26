@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { TbFidgetSpinner } from "react-icons/tb";
 import { useNavigate, useParams } from "react-router-dom";
-import { imageUpload } from "../../api/utls";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
@@ -70,19 +68,19 @@ const UpdateArtifact = () => {
         },
         onSuccess: () => {
             toast.success("Artifact Update successfully!");
-            setLoading(false);
+            // setLoading(false);
             queryClient.invalidateQueries({ queryKey: ["myArtifacts"] });
             navigate("/my-artifacts");
         },
         onError: (error) => {
             toast.error("Failed to update artifact. Please try again.");
-            setLoading(false);
+            // setLoading(false);
         },
     });
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        // setLoading(true);
         // refetch();
 
         const form = e.target;
@@ -95,8 +93,10 @@ const UpdateArtifact = () => {
         const artifact_type = selectedArtifactType;
         const historical_context = form.description.value;
 
-        const image = form.photoFile.files[0];
+        // const image = form.photoFile.files[0];
+        const artifact_image = form.photoFile.value;
         // console.log(image);
+        // console.log(artifact_image);
 
 
         let updateArtifactData = {
@@ -107,16 +107,17 @@ const UpdateArtifact = () => {
             location,
             artifact_type,
             historical_context,
+            artifact_image
         };
         // artifact_image: image_url,
 
         // setLoading(false);
         // refetch();
         // console.log("Image Length ", storeImage.length);
-        if (image) {
-            const image_url = await imageUpload(image);
-            updateArtifactData = { ...updateArtifactData, artifact_image: image_url };
-        }
+        // if (image) {
+        // const image_url = await imageUpload(image);
+        // updateArtifactData = { ...updateArtifactData, artifact_image: image_url };
+        // }
         // console.table(updateArtifactData);
         updateArtifact(updateArtifactData);
     };
@@ -228,10 +229,11 @@ const UpdateArtifact = () => {
                                 </label>
                                 <input
                                     id="photoFile"
-                                    type="file"
+                                    type="text"
                                     name="photoFile"
-                                    onChange={e => { handleImage(e.target.files[0]) }}
-                                    // defaultValue={getUpdateArtifactData?.artifact_image}
+                                    required
+                                    // onChange={e => { handleImage(e.target.files[0]) }}
+                                    defaultValue={getUpdateArtifactData?.artifact_image}
                                     // value={getUpdateArtifactData?.artifact_image}
                                     className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 border-0 bg-gray-200 pl-2 py-2 mt-1"
                                 // {...register("photoFile", { required: true })}
@@ -379,14 +381,15 @@ const UpdateArtifact = () => {
                             <div className="col-span-full">
                                 <button
                                     type="submit"
-                                    disabled={loading}
+                                    // disabled={loading}
                                     className="disabled:cursor-not-allowed w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 dark:bg-green-500 focus:dark:ring-green-600 hover:dark:ring-green-600 dark:text-gray-50 uppercase"
                                 >
-                                    {loading ? (
-                                        <TbFidgetSpinner className="animate-spin m-auto" />
-                                    ) : (
-                                        "Update Artifact"
-                                    )}
+                                    Update Artifact
+                                    {/* {loading ? ( */}
+                                    {/* <TbFidgetSpinner className="animate-spin m-auto" /> */}
+                                    {/* ) : ( */}
+                                    {/* "Update Artifact" */}
+                                    {/* )} */}
                                 </button>
                             </div>
                         </div>
