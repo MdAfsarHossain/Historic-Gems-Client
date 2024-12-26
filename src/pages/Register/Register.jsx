@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 // import { imageUpload } from "../../components/api/ults";
-import { imageUpload } from "../../api/utls";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
@@ -38,10 +37,11 @@ const Register = () => {
     const userName = data.username;
     const email = data.email;
     const password = data.password;
-    const image = data.photoFile[0];
+    // const image = data.photoFile[0];
+    const photoUrl = data.photoFile;
 
-    const formData = new FormData();
-    formData.append("image", image);
+    // const formData = new FormData();
+    // formData.append("image", image);
 
     if (password.length < 6) {
       setError("Password must be at least 6 characters long.");
@@ -65,13 +65,14 @@ const Register = () => {
       // setLoading(true);
 
       // 1. Upload imag and get image url
-      const image_url = await imageUpload(image);
+      // const image_url = await imageUpload(image);
 
       // 2. User Registration
       const result = await createUser(email, password);
 
       // 3. Save username and photo in firebase
-      await updateUserProfile(userName, image_url);
+      // await updateUserProfile(userName, image_url);
+      await updateUserProfile(userName, photoUrl);
       toast.success("User Registered successfully!!");
       // setLoading(false);
       setUser({ ...user, displayName: userName, photoURL: photoUrl });
@@ -164,12 +165,13 @@ const Register = () => {
           {/* Photo URL */}
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block text-gray-700">
-              Select Image:
+              {/* Select Image: */}
+              Photo Url:
             </label>
             <input
-              type="file"
+              type="text"
               name="photoFile"
-              id="photoUrl"
+              id="photoFile"
               placeholder="Photo URL"
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-100 focus:border-violet-400"
               {...register("photoFile", { required: true })}
