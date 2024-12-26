@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { TbFidgetSpinner } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import { imageUpload } from "../../api/utls";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
@@ -43,19 +41,19 @@ const AddArtifacts = () => {
         },
         onSuccess: () => {
             toast.success("Artifact added successfully!");
-            setLoading(false);
+            // setLoading(false);
             queryClient.invalidateQueries({ queryKey: ["allArtifacts"] });
             navigate('/all-artifacts');
         },
         onError: (error) => {
             toast.error("Failed to add artifact. Please try again.");
-            setLoading(false);
+            // setLoading(false);
         }
     });
 
 
     const onSubmit = async (data) => {
-        setLoading(true);
+        // setLoading(true);
         const artifact_name = data.artifactName;
         const created_at = data.createdAt;
         const discovered_at = data.discoveredAt;
@@ -63,16 +61,17 @@ const AddArtifacts = () => {
         const location = data.location;
         const artifact_type = selectedArtifactType;
         const historical_context = data.description;
+        const image = data.photoFile;
 
         // Image data
-        const image = data.photoFile[0];
-        const formData = new FormData();
-        formData.append("image", image);
+        // const image = data.photoFile[0];
+        // const formData = new FormData();
+        // formData.append("image", image);
 
 
         try {
             // 1. Upload imag and get image url
-            const image_url = await imageUpload(image);
+            // const image_url = await imageUpload(image);
 
             const addArtifactData = {
                 artifact_name,
@@ -82,7 +81,8 @@ const AddArtifacts = () => {
                 location,
                 artifact_type,
                 historical_context,
-                artifact_image: image_url,
+                // artifact_image: image_url,
+                artifact_image: image,
                 author_email: user?.email,
                 author_name: user?.displayName,
                 author_image: user?.photoURL,
@@ -95,7 +95,7 @@ const AddArtifacts = () => {
             createNewArtifact(addArtifactData);
         } catch (error) {
             toast.error("Error adding artifact: " + error.message);
-            setLoading(false);
+            // setLoading(false);
         }
     };
 
@@ -151,7 +151,7 @@ const AddArtifacts = () => {
                                 </label>
                                 <input
                                     id="photoFile"
-                                    type="file"
+                                    type="text"
                                     name="photoFile"
                                     className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700 border-0 bg-gray-200 pl-2 py-2 mt-1"
                                     {...register("photoFile", { required: true })}
@@ -321,14 +321,15 @@ const AddArtifacts = () => {
                             <div className="col-span-full">
                                 <button
                                     type="submit"
-                                    disabled={loading}
+                                    // disabled={loading}
                                     className="disabled:cursor-not-allowed w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 dark:bg-green-500 focus:dark:ring-green-600 hover:dark:ring-green-600 dark:text-gray-50 uppercase"
                                 >
-                                    {loading ? (
-                                        <TbFidgetSpinner className="animate-spin m-auto" />
-                                    ) : (
-                                        "Add Artifact"
-                                    )}
+                                    Add Artifact
+                                    {/* {loading ? ( */}
+                                    {/* <TbFidgetSpinner className="animate-spin m-auto" /> */}
+                                    {/* ) : ( */}
+                                    {/* "Add Artifact" */}
+                                    {/* )} */}
                                 </button>
                             </div>
                         </div>
