@@ -3,14 +3,16 @@ import MainLayout from "../layouts/MainLayout/MainLayout";
 import AddArtifacts from "../pages/AddArtifacts/AddArtifacts";
 import AllArtifacts from "../pages/AllArtifacts/AllArtifacts";
 import ArtifactsDetails from "../pages/ArtifactsDetails/ArtifactsDetails";
+import ArtifactReviews from "../pages/ArtifactsReviews/ArtifactsReviews";
 import Error from "../pages/Error/Error";
+import HistoryBlog from "../pages/HistoryBlog/HistoryBlog";
 import Home from "../pages/Home/Home";
 import LikedArtifacts from "../pages/LikedArtifacts/LikedArtifacts";
 import Login from "../pages/Login/Login";
 import MyArtifacts from "../pages/MyArtifacts/MyArtifacts";
 import Register from "../pages/Register/Register";
-import PrivateRoute from "./PrivateRoute";
 import UpdateArtifact from "../pages/UpdateArtifact/UpdateArtifact";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: 'all-artifacts',
         element: <AllArtifacts />
+      },
+      {
+        path: 'history-blogs',
+        element: <HistoryBlog />
+      },
+      {
+        path: 'artifacts-reviews',
+        element: <ArtifactReviews />
       },
       {
         path: 'artifacts-details/:id',
