@@ -12,19 +12,49 @@ const AllArtifacts = () => {
     const location = useLocation();
     const [searchText, setSearchText] = useState("");
 
-    const { isLoading, data: allArtifacts, isError } = useQuery({
-        queryKey: ["allArtifacts", searchText],
+    const [selectedArtifactType, setSelectedArtifactType] = useState("");
+    // List of artifacts types
+    const artifactType = [
+        "All Type",
+        "Tools",
+        "Weapons",
+        "Documents",
+        "Writings"
+    ]
+
+    const { isLoading, data: allArtifacts, isError, refetch } = useQuery({
+        queryKey: ["allArtifacts", selectedArtifactType],
         queryFn: async () => {
-            const { data } = await axiosSecure.get(`/all-artifacts?search=${searchText}`);
+            const { data } = await axiosSecure.get(`/all-artifacts?filter=${selectedArtifactType}&search=${searchText}`);
+            // setSearchText("");
             return data;
         }
     })
+
+    // Handle change event
+    const handleChange = (event) => {
+
+        // console.log(event.target.value);
+        setSelectedArtifactType(event.target.value);
+
+    };
+
+    const handleSearchBtn = () => {
+        refetch();
+        // setSearchText("");
+        // console.log("Call refetch");
+        // const { data } = await axios.get(
+        //     `${import.meta.env.VITE_API_URL
+        //     }/all-visas?filter=${selectedVisaType}&search=${searchText}`
+        // );
+        // setDisplayVisasData(data);
+    }
 
     // useEffect(() => {
     //     window.scrollTo({ top: 0, behavior: "smooth" });
     // }, [location])
 
-    // if (isLoading) return <LoadingSpinner />;
+    if (isLoading) return <LoadingSpinner />;
 
     return (
         <div className='mt-24'>
@@ -41,21 +71,62 @@ const AllArtifacts = () => {
             {/* End of Heading */}
 
             {/* Search */}
-            <div className="border-0 flex flex-row gap-5 justify-center mt-8">
-                <input
-                    onChange={(e) => {
-                        setSearchText(e.target.value);
-                    }}
-                    type="text"
-                    placeholder="Enter artifact name for search...."
-                    className="input input-bordered input-success lg:w-[350px]"
-                />
-                {/* <button
-                    onClick={handleSearchBtn}
-                    className="btn btn-success text-white"
-                >
-                    Search
-                </button> */}
+            <div className="border-0 flex flex-row gap-5 justify-between mt-8 px-5 md:px-10">
+
+                <div className="flex-1 hidden lg:block text-white">
+                    <p>.</p>
+                </div>
+
+                <div className="flex-1 flex flex-row gap-5 justify-center">
+                    <input
+                        onChange={(e) => {
+                            setSearchText(e.target.value);
+                        }}
+                        type="text"
+                        value={searchText}
+                        placeholder="Enter artifact name for search...."
+                        className="input input-bordered input-success lg:w-[350px]"
+                    />
+                    <button
+                        onClick={handleSearchBtn}
+                        className="bg-green-500 font-bold px-5 rounded-lg text-white border-2 border-green-500 hover:bg-transparent hover:text-green-500 hover:border-green-500 transition-all"
+                    >
+                        Search
+                    </button>
+                </div>
+
+                {/* Sorting By Artifacte Types */}
+                <div className="flex-1 hidden md:block">
+                    <div className="flex flex-row gap-3 justify-center items-center">
+                        <label htmlFor="artifactType" className="block mb-2 text-lg">
+                            Filter:
+                        </label>
+                        <div className="artifact-dropdown">
+                            <select
+                                id="artifacteType"
+                                value={selectedArtifactType}
+                                onChange={handleChange}
+                                className="w-full p-2 border border-green-500 rounded-lg"
+                            >
+                                <option value="" disabled>
+                                    -- Choose Artifact Type --
+                                </option>
+                                {artifactType.map((type, index) => (
+                                    <option
+                                        key={index} value={type}>
+                                        {type}
+                                    </option>
+                                ))}
+                            </select>
+
+                            {/* {selectedArtifactType && (
+                                <p className="mt-3 text-sm text-green-600">
+                                    You selected: <strong>{selectedArtifactType}</strong>
+                                </p>
+                            )} */}
+                        </div>
+                    </div>
+                </div>
             </div>
             {/* End of Serach */}
 
