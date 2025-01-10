@@ -30,7 +30,9 @@ const BecomeAMember = () => {
                     </div>
 
                     <div className="mt-5">
-                        <button className='uppercase px-10 py-3 bg-white text-black font-thin text-xl border-2 hover:border-[#AAA081] hover:bg-[#AAA081] hover:text-white transition-all'>Become a member</button>
+                        <button className='uppercase px-10 py-3 bg-white text-black font-thin text-xl border-2 
+                        border-green-400 hover:border-green-400 hover:bg-green-500 hover:text-white transition-all'>Become a member</button>
+
                     </div>
                 </div>
             </div>
