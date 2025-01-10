@@ -12,7 +12,7 @@ const LatestNews = () => {
             {/* End of Heading */}
 
             {/* Latest News */}
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-16">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 px-5 lg:px-5">
                 {/* Card-1 */}
                 <div className="flex flex-col justify-start items-start gap-1 border-0 shadow-2xl rounded-md group">
                     <div className="w-full overflow-hidden rounded-t-md relative">
@@ -38,7 +38,7 @@ const LatestNews = () => {
                     </div>
                     <div className="mb-5 mt-2 px-3">
                         <Link
-                            className='font-bold text-lg hover:text-[#AAA081] hover:underline transition-all hover:underline-offset-8'
+                            className='font-bold text-lg hover:text-green-500 hover:underline transition-all hover:underline-offset-8'
                         >Learn More</Link>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ const LatestNews = () => {
                     </div>
                     <div className="mb-5 mt-2 px-3">
                         <Link
-                            className='font-bold text-lg hover:text-[#AAA081] hover:underline transition-all hover:underline-offset-8'
+                            className='font-bold text-lg hover:text-green-500 hover:underline transition-all hover:underline-offset-8'
                         >Learn More</Link>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ const LatestNews = () => {
                     </div>
                     <div className="mb-5 mt-2 px-3">
                         <Link
-                            className='font-bold text-lg hover:text-[#AAA081] hover:underline transition-all hover:underline-offset-8'
+                            className='font-bold text-lg hover:text-green-500 hover:underline transition-all hover:underline-offset-8'
                         >Learn More</Link>
                     </div>
                 </div>
