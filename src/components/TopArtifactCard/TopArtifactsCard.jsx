@@ -18,7 +18,7 @@ const TopArtifactsCard = ({ artifact }) => {
 
             {/* Info */}
             <div className="flex flex-col gap-2">
-                <div className="bg-sky-200 w-fit px-2 rounded-md">
+                <div className={`bg-sky-200 w-fit px-2 rounded-md`}>
                     <p className="font-bold uppercase text-base">{artifact_name}</p>
                 </div>
                 {/* <p>id: {_id}</p> */}
@@ -30,14 +30,16 @@ const TopArtifactsCard = ({ artifact }) => {
                 {/* Historical Context */}
                 <div className="flex flex-row justify-start items-start gap-2">
                     <span><TbFileDescription className="text-2xl" /></span>
-                    <p className="line-clamp-3">
+                    <p className="line-clamp-2">
                         {historical_context}</p>
                 </div>
 
                 <Link
                     to={`/artifacts-details/${_id}`}
                     className="mb-5 flex flex-col justify-center items-center mt-2">
-                    <button className="px-10 py-2 border-2 font-bold bg-yellow-200 border-yellow-500  rounded-full hover:bg-yellow-300 transition-all hover:border-yellow-600">View Details</button>
+                    {/* <button className="px-10 py-2 border-2 font-bold bg-yellow-200 border-yellow-500  rounded-full hover:bg-yellow-300 transition-all hover:border-yellow-600">View Details</button> */}
+
+                    <button className="px-10 py-2 border-2 font-bold bg-green-300 border-green-500  rounded-full hover:bg-green-500 transition-all hover:border-green-600 hover:text-white">View Details</button>
                 </Link>
             </div>
         </div>
