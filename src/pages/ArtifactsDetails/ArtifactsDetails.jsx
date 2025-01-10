@@ -85,7 +85,7 @@ const ArtifactsDetails = () => {
     return (
         <div className='mt-24'>
             <Helmet>
-                <title>Historic Gems | Artifact Details</title>
+                <title>Historic Gems | {artifact?.artifact_name}</title>
             </Helmet>
 
             {/* 2nd Part */}
