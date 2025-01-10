@@ -4,7 +4,7 @@ import { LuTicketPlus } from "react-icons/lu";
 
 const OpenHours = () => {
     return (
-        <div className='px-5 lg:px-16 mt-20 mb-28'>
+        <div className='px-5 lg:px-0 mt-20 mb-28'>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {/* Open Hours */}
                 <div className="flex flex-col justify-center items-center gap-2 border-0 text-center py-10 shadow-2xl">
@@ -19,7 +19,7 @@ const OpenHours = () => {
                         <h1>Friday & Holidays: Closed</h1>
                     </div>
                     <div className="">
-                        <button className="border-2 px-5 py-2 mt-5 transition-all font-bold hover:bg-gray-800 hover:text-white hover:border-gray-800">All Hours</button>
+                        <button className="border-2 px-5 py-2 mt-5 transition-all font-bold border-green-500 text-green-500 hover:bg-green-500 hover:text-white hover:border-green-400">All Hours</button>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@ const OpenHours = () => {
                         <h1>New Market, Chattogram</h1>
                     </div>
                     <div className="">
-                        <button className="border-2 px-5 py-2 mt-5 transition-all font-bold border-[#AAA081] bg-[#AAA081] text-white hover:bg-white hover:border-white hover:text-black">Getting Here</button>
+                        <button className="border-2 px-5 py-2 mt-5 transition-all font-bold border-green-500 bg-green-500 text-white hover:bg-white hover:border-green-500 hover:text-green-500">Getting Here</button>
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@ const OpenHours = () => {
                         <h1>Collect Your Ticket</h1>
                     </div>
                     <div className="">
-                        <button className="border-2 px-5 py-2 mt-5 transition-all font-bold hover:bg-gray-800 hover:text-white hover:border-gray-800">Buy Online</button>
+                        <button className="border-2 px-5 py-2 mt-5 transition-all font-bold border-green-500 text-green-500 hover:bg-green-500 hover:text-white hover:border-green-400">Buy Online</button>
                     </div>
                 </div>
             </div>
