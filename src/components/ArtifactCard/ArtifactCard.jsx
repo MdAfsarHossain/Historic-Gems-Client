@@ -43,7 +43,8 @@ const ArtifactCard = ({ artifact }) => {
                 <Link
                     to={`/artifacts-details/${_id}`}
                     className="mb-5 flex flex-col justify-center items-center mt-2">
-                    <button className="px-10 py-2 border-2 font-bold bg-yellow-200 border-yellow-500  rounded-full hover:bg-yellow-300 transition-all hover:border-yellow-600">View Details</button>
+                    {/* <button className="px-10 py-2 border-2 font-bold bg-yellow-200 border-yellow-500  rounded-full hover:bg-yellow-300 transition-all hover:border-yellow-600">View Details</button> */}
+                    <button className="px-10 py-2 border-2 font-bold bg-green-300 border-green-500  rounded-full hover:bg-green-500 transition-all hover:border-green-600 hover:text-white">View Details</button>
                 </Link>
             </div>
         </div>
