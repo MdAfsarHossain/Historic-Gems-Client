@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { RxDashboard } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -72,51 +73,82 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/add-artifact"
+          to="/artifacts-reviews"
           className={({ isActive }) =>
             isActive
               ? "bg-green-500 text-white px-4 py-2 rounded-full font-bold"
               : `px-4 py-2 font-bold ${theme === themes.sunthwave && 'text-white'}`
           }
         >
-          Add Artifacts
+          Artifacts Reviews
         </NavLink>
       </li>
-      <li
-        className="md:hidden"
-      >
+      <li>
         <NavLink
-          to="/my-artifacts"
+          to="/history-blogs"
           className={({ isActive }) =>
             isActive
               ? "bg-green-500 text-white px-4 py-2 rounded-full font-bold"
               : `px-4 py-2 font-bold ${theme === themes.sunthwave && 'text-white'}`
           }
         >
-          My Artifacts
+          History Blogs
         </NavLink>
       </li>
-      <li
-        className="md:hidden"
-      >
-        <NavLink
-          to="/liked-artifacts"
-          className={({ isActive }) =>
-            isActive
-              ? "bg-green-500 text-white px-4 py-2 rounded-full font-bold"
-              : `px-4 py-2 font-bold ${theme === themes.sunthwave && 'text-white'}`
-          }
-        >
-          Liked Artifacts
-        </NavLink>
-      </li>
+      {
+        user && <>
+
+          <li
+            className="md:hidden"
+          >
+            <NavLink
+              to="/add-artifact"
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-green-500 text-white px-4 py-2 rounded-full font-bold"
+                  : `px-4 py-2 font-bold ${theme === themes.sunthwave && 'text-white'}`
+              }
+            >
+              Add Artifacts
+            </NavLink>
+          </li>
+          <li
+            className="md:hidden"
+          >
+            <NavLink
+              to="/my-artifacts"
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-green-500 text-white px-4 py-2 rounded-full font-bold"
+                  : `px-4 py-2 font-bold ${theme === themes.sunthwave && 'text-white'}`
+              }
+            >
+              My Artifacts
+            </NavLink>
+          </li>
+          <li
+            className="md:hidden"
+          >
+            <NavLink
+              to="/liked-artifacts"
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-green-500 text-white px-4 py-2 rounded-full font-bold"
+                  : `px-4 py-2 font-bold ${theme === themes.sunthwave && 'text-white'}`
+              }
+            >
+              Liked Artifacts
+            </NavLink>
+          </li>
+        </>
+      }
     </>
   );
 
 
   return (
     <div
-      className={`md:px-5 border-0 drawer z-50  transition-all duration-300 ${theme === themes.light ? 'bg-white' : 'bg-transparent'}  ${scrolled
+      className={`md:px-5 border- drawer z-50  transition-all duration-300 ${theme === themes.light ? 'bg-white' : 'bg-transparent'}  ${scrolled
         ? "fixed top-0 left-0 backdrop-blur-md bg-white bg-opacity-50 shadow-lg"
         : "fixed top-0 left-0 bg-transparent"
         }`}
@@ -173,6 +205,29 @@ const Navbar = () => {
                 </div>
               ) : (
                 <>
+
+                  {/*  Dashboard */}
+                  <div className="dropdown dropdown-bottom dropdown-end hidden md:block mr-4">
+                    <div tabIndex={0} role="button" className="m-1 flex flex-row justify-center items-center gap-3 border-0 px-2 py-1 rounded-md  font-bold text-green-500 text-4xl"><RxDashboard /> <span className="hidden"><IoIosArrowDown /></span></div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
+                      <li>
+                        <NavLink
+                          to="/add-artifact"
+                          className="mb-1"
+                        >
+                          Add Artifacts
+                        </NavLink>
+                      </li>
+                      <li className="mb-1"><NavLink
+                        to='/my-artifacts'
+                      >My Artifacts</NavLink></li>
+                      <li><NavLink
+                        to='/liked-artifacts'
+                      >Liked Artifacts</NavLink></li>
+                    </ul>
+                  </div>
+
+                  {/* Profile */}
                   <div className=" dropdown dropdown-hover dropdown-end mr-4">
                     <div tabIndex={0} role="button" className="">
                       <div className="avatar">
@@ -207,18 +262,7 @@ const Navbar = () => {
                     </ul>
                   </div>
 
-                  {/*  My Profile */}
-                  <div className="dropdown dropdown-bottom dropdown-end hidden md:block">
-                    <div tabIndex={0} role="button" className="m-1 flex flex-row justify-center items-center gap-3 border-2 px-2 py-1 rounded-md border-green-500 bg-green-500 font-bold text-white"><p>My Profile</p> <span><IoIosArrowDown /></span></div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                      <li className="mb-1"><NavLink
-                        to='/my-artifacts'
-                      >My Artifacts</NavLink></li>
-                      <li><NavLink
-                        to='/liked-artifacts'
-                      >Liked Artifacts</NavLink></li>
-                    </ul>
-                  </div>
+
                   {/* End of My Profile */}
                 </>
               )}
