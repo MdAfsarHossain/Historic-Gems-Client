@@ -28,7 +28,7 @@ const TopArtifacts = () => {
             {/* End of Heading */}
 
             {/* Top Artifacts Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-10 mt-8 px-5 md:px-5 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-5 mt-8 px-5 md:px-5 lg:px-0">
                 {
                     topArtifacts?.map((artifact) => <TopArtifactsCard
                         key={artifact._id}
