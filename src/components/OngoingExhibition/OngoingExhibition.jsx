@@ -10,7 +10,7 @@ const OngoingExhibition = () => {
             {/* End of Heading */}
 
             {/* Exhibitons Cards */}
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-16">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 px-5 lg:px-5">
                 {/* Card-1 */}
                 <div className="flex flex-col justify-start items-start gap-1 border-0 shadow-2xl rounded-md group">
                     <div className="w-full overflow-hidden rounded-t-md">
@@ -24,7 +24,7 @@ const OngoingExhibition = () => {
                         <p className="font-semibold text-gray-500">Dec-20, 2024 - Dec 31, 2024</p>
                     </div>
                     <div className="mb-5 mt-4 px-3">
-                        <button className="bg-gray-800 text-white px-5 rounded py-2 font-bold border-2 border-gray-800 hover:bg-transparent hover:border-gray-800 hover:text-gray-800 transition-all">Read More</button>
+                        <button className="bg-green-500 text-white px-5 rounded py-2 font-bold border-2 border-green-600 hover:bg-transparent hover:border-green-500 hover:text-green-500 transition-all">Read More</button>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@ const OngoingExhibition = () => {
                         <p className="font-semibold text-gray-500">Dec-20, 2024 - Dec 31, 2024</p>
                     </div>
                     <div className="mb-5 mt-4 px-3">
-                        <button className="bg-gray-800 text-white px-5 rounded py-2 font-bold border-2 border-gray-800 hover:bg-transparent hover:border-gray-800 hover:text-gray-800 transition-all">Read More</button>
+                        <button className="bg-green-500 text-white px-5 rounded py-2 font-bold border-2 border-green-600 hover:bg-transparent hover:border-green-500 hover:text-green-500 transition-all">Read More</button>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@ const OngoingExhibition = () => {
                         <p className="font-semibold text-gray-500">Dec-20, 2024 - Dec 31, 2024</p>
                     </div>
                     <div className="mb-5 mt-4 px-3">
-                        <button className="bg-gray-800 text-white px-5 rounded py-2 font-bold border-2 border-gray-800 hover:bg-transparent hover:border-gray-800 hover:text-gray-800 transition-all">Read More</button>
+                        <button className="bg-green-500 text-white px-5 rounded py-2 font-bold border-2 border-green-600 hover:bg-transparent hover:border-green-500 hover:text-green-500 transition-all">Read More</button>
                     </div>
                 </div>
             </div>
