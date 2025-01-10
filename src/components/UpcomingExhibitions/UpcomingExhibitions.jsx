@@ -11,7 +11,7 @@ const UpcomingExhibitions = () => {
             {/* End of HeadinFg */}
 
             {/* Upcoming Exhibitinos */}
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-16">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 px-5 lg:px-5">
                 {/* Card-1 */}
                 <div className="flex flex-col justify-start items-center gap-3 border-0 shadow-2xl rounded-b-md group">
                     <div className="w-full overflow-hidden rounded-t-md">
