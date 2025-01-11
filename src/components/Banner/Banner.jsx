@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 // import required modules
 import { Pagination } from 'swiper/modules';
@@ -23,8 +23,8 @@ const Banner = () => {
           disableOnInteraction: false,
         }}
         // modules={[Navigation]}
-        // Autoplay,
-        modules={[ Pagination, Navigation]}
+        // 
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide>
