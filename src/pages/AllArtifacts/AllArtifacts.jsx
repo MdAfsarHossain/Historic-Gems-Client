@@ -22,6 +22,13 @@ const AllArtifacts = () => {
         "Writings"
     ]
 
+    // List of Sorting types
+    const sortingType = [
+        "ALL",
+        "ASC",
+        "DESC",
+    ]
+
     const { isLoading, data: allArtifacts, isError, refetch } = useQuery({
         queryKey: ["allArtifacts", selectedArtifactType],
         queryFn: async () => {
