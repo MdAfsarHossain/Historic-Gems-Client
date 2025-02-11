@@ -47,4 +47,69 @@ Built with a user-friendly interface, the project ensures accessibility across d
 - [Swiper JS](https://swiperjs.com/get-started)
 - [React Router DOM](https://reactrouter.com/home)
 
+## [Technology Stack]()
+- `Frontend:` React, Tailwind CSS, Daisy UI.
+- `Backend:` Node.js, Express.js.
+- `Database:` MongoDB.
+- `Authentication:` Firebase.
+- `APIs:` RESTful APIs for data retrieval and management.
+
+## [Dependencies]()
+- `@tanstack/react-query:` ^5.62.8
+- `@tanstack/react-query-devtools:` ^5.62.8
+- `axios:` ^1.7.9
+- `firebase:` ^11.1.0
+- `prop-types:` ^15.8.1
+- `react:` ^18.3.1
+- `react-countup:` ^6.5.3
+- `react-dom:` ^18.3.1
+- `react-helmet-async:` ^2.0.5
+- `react-hook-form:` ^7.54.2
+- `react-hot-toast:` ^2.4.1
+- `react-icons:` ^5.4.0
+- `react-rating-stars-component:` ^2.2.0
+- `react-router-dom:` ^6.28.1
+- `sweetalert2:` ^11.15.3
+- `swiper:` ^11.1.15
+
+## [Installation]()
+- Run `npm install` to install project Dependencies
+
+## [How to Run]()
+1. Clone the repository
+```js
+git clone https://github.com/MdAfsarHossain/Historic-Gems-Client.git
+cd historic-gems-client
+```
+
+2. Install dependencies using
+```js
+npm install
+```
+3. Setup Environment Variables
+- Create `.env.local` in the root directory.
+- Add `VITE_API_URL` variable and put your server url here.
+- Create a firebase project and add config here firebase config will look like
+```js
+VITE_apiKey
+VITE_authDomain
+VITE_projectId
+VITE_storageBucket
+VITE_messagingSenderId
+VITE_appId
+```
+4. Run the website to locally
+```js
+npm run dev
+```
+5. Open the website in your local browser http://localhost:5173
+
+## [Deployment]()
+- Hosted on Netlify or Vercel for a fast and reliable experience.
+- Firebase Authentication requires authorized domains to ensure secure access.
+## [Contributions]()
+- Contributions are welcome! Fork this repository, make your changes, and submit a pull request.
+
+
 ## [Live Link](https://historicgems-e6d80.web.app)
+## [Server Site Code Link](https://github.com/MdAfsarHossain/Historic-Gems-Server)
