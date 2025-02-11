@@ -12,6 +12,15 @@ const HistoryBlog = () => {
             excerpt:
                 "Discover how the Rosetta Stone became the key to unlocking ancient Egyptian hieroglyphs.",
         },
+        {
+            id: 2,
+            title: "Antikythera Mechanism: The First Computer?",
+            author: "Sophia Hill",
+            date: "December 20, 2024",
+            image: "https://i.ibb.co.com/3C8Cj3Q/antikythera.webp",
+            excerpt:
+                "Learn about the fascinating 2,000-year-old device that showcased advanced ancient engineering.",
+        },
         
     ];
 
