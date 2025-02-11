@@ -25,7 +25,7 @@ const AllArtifacts = () => {
     const { isLoading, data: allArtifacts, isError, refetch } = useQuery({
         queryKey: ["allArtifacts", selectedArtifactType],
         queryFn: async () => {
-            const { data } = await axiosSecure.get(`/all-artifacts?filter=${selectedArtifactType}&search=${searchText}`);
+            const { data } = await axiosSecure.get(`/all-artifacts?filter=${selectedArtifactType}&search=${searchText}&sort=${sortType}`);
             // setSearchText("");
             return data;
         }
@@ -33,10 +33,8 @@ const AllArtifacts = () => {
 
     // Handle change event
     const handleChange = (event) => {
-
         // console.log(event.target.value);
         setSelectedArtifactType(event.target.value);
-
     };
 
     const handleSearchBtn = () => {
@@ -71,10 +69,37 @@ const AllArtifacts = () => {
             {/* End of Heading */}
 
             {/* Search */}
-            <div className="border-0 flex flex-row gap-5 justify-between mt-8 px-5 md:px-10">
+            <div className="border-0 flex flex-row gap-5 justify-between mt-8 px-5 md:px-10 lg:px-0">
 
-                <div className="flex-1 hidden lg:block text-white">
+                {/* <div className="flex-1 hidden lg:block text-white">
                     <p>.</p>
+                </div> */}
+
+                {/* Sorting By Price */}
+                <div className="flex-1 hidden lg:block">
+                    <div className="flex flex-row gap-3 justify-center items-center">
+                        <label htmlFor="artifactType" className="block mb-2 text-lg">
+                            Sort:
+                        </label>
+                        <div className="artifact-dropdown">
+                            <select
+                                id="artifacteType"
+                                value={sortType}
+                                onChange={handleChangeSortType}
+                                className="w-full p-2 border border-green-500 rounded-lg"
+                            >
+                                <option value="" disabled>
+                                    -- Choose Sorting --
+                                </option>
+                                {sortingType?.map((type, index) => (
+                                    <option
+                                        key={index} value={type}>
+                                        {type}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="flex-1 flex flex-row gap-5 justify-center">
