@@ -21,7 +21,15 @@ const HistoryBlog = () => {
             excerpt:
                 "Learn about the fascinating 2,000-year-old device that showcased advanced ancient engineering.",
         },
-        
+        {
+            id: 3,
+            title: "Exploring the Mysteries of the Terracotta Army",
+            author: "Emily Clarke",
+            date: "December 18, 2024",
+            image: "https://i.ibb.co.com/3M4v6Qh/Terracotta-Army.jpg",
+            excerpt:
+                "Dive into the story behind the thousands of unique soldiers guarding an emperor's tomb.",
+        },
     ];
 
     return (
