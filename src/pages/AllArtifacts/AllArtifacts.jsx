@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import ArtifactCard from '../../components/ArtifactCard/ArtifactCard';
@@ -30,6 +30,10 @@ const AllArtifacts = () => {
             return data;
         }
     })
+
+    useEffect(() => {
+        refetch();
+    }, [searchText, sortType])
 
     // Handle change event
     const handleChange = (event) => {
