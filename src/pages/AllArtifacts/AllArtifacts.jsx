@@ -11,6 +11,7 @@ const AllArtifacts = () => {
     const axiosSecure = useAxiosSecure();
     const location = useLocation();
     const [searchText, setSearchText] = useState("");
+    const [sortType, setSortType] = useState("");
 
     const [selectedArtifactType, setSelectedArtifactType] = useState("");
     // List of artifacts types
